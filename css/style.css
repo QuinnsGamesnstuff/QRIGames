@@ -1,1 +1,13 @@
-# Empty CSS file for your own CSS
+
+.col-md-4,.col-md-8, .h3 {
+	font-size: 14pt; 
+	font-family: Verdana;
+ 	Background-color: #ccffff;
+} 
+
+.col-md-12 {
+	font-size: 14pt; 
+	font-family: Verdana;
+ 	Background-color: #e6eaf0
+}
+
