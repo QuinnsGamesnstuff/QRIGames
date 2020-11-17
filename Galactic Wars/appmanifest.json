@@ -1,6 +1,6 @@
 {
-	"name": "Galactic Wars",
-	"short_name": "Galactic Wars",
+	"name": "Ghost Shooter",
+	"short_name": "Ghost Shooter",
 	"description": "A simple top-down shooter example based on the Construct tutorial.",
 	"start_url": "index.html",
 	"display": "fullscreen",
