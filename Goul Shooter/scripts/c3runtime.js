@@ -3037,7 +3037,8 @@ WaypointYAt(i){return this._GetWaypointYAt(i)}}};
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.Plugins.System.Acts.SetVar,
-		C3.Plugins.System.Acts.GoToLayout
+		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.Sprite.Acts.SetVisible
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -3071,6 +3072,14 @@ WaypointYAt(i){return this._GetWaypointYAt(i)}}};
 		{Sprite5: 0},
 		{Text: 0},
 		{GrenadeCount: 0},
+		{TiledBackground2: 0},
+		{TiledBackground3: 0},
+		{Sprite6: 0},
+		{textblock: 0},
+		{TITTlE: 0},
+		{Details: 0},
+		{Deatils2: 0},
+		{Sprite7: 0},
 		{AmoNum: 0},
 		{MonsterSpeed: 0},
 		{Score: 0}
