@@ -2886,28 +2886,27 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.Sprite.Acts.Destroy,
+		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Sprite.Acts.SubInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
+		C3.Plugins.Sprite.Acts.SetDefaultColor,
+		C3.Behaviors.Bullet.Acts.SetSpeed,
 		C3.Plugins.Text.Acts.SetVisible,
-		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Acts.ResetGlobals,
-		C3.Plugins.Sprite.Cnds.CompareY,
-		C3.Plugins.System.Exps.layoutheight,
-		C3.Plugins.Sprite.Cnds.IsOutsideLayout,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.System.Cnds.Repeat,
 		C3.Plugins.System.Exps.layoutwidth,
-		C3.Behaviors.Bullet.Acts.SetSpeed,
+		C3.Plugins.System.Exps.layoutheight,
 		C3.Plugins.Sprite.Acts.SetScale,
 		C3.Behaviors.Bullet.Exps.Speed,
 		C3.Plugins.Sprite.Acts.SetOpacity,
 		C3.Plugins.Mouse.Cnds.OnAnyClick,
-		C3.Plugins.Keyboard.Cnds.OnAnyKey
+		C3.Plugins.Sprite.Acts.SetVisible
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -2929,7 +2928,7 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		{Mouse: 0},
 		{Keyboard: 0},
 		{Sprite: 0},
-		{Sprite2: 0},
+		{homeback: 0},
 		{Text2: 0},
 		{am: 0},
 		{endscreen: 0},
@@ -2940,6 +2939,11 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		{play: 0},
 		{Text3: 0},
 		{Back: 0},
+		{dot: 0},
+		{DYcord: 0},
+		{deathblock: 0},
+		{Sprite2: 0},
+		{Sprite3: 0},
 		{amo: 0},
 		{amoT: 0},
 		{score: 0}
@@ -3060,7 +3064,7 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
-		() => 3,
+		() => 2,
 		() => 60,
 		() => "Game",
 		p => {
@@ -3068,12 +3072,15 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 			return () => f0(30, 450);
 		},
 		() => -20,
-		() => 1,
+		() => 20,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => Math.floor(f0(30, 450));
 		},
 		() => 0,
+		() => 1,
+		() => -17179870207,
+		() => 400,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
