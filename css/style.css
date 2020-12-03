@@ -19,9 +19,7 @@ img {
 }
 
 h3, h2 {
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em
+   text-align: center
 }
 
 h5 {
