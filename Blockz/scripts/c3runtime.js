@@ -2940,6 +2940,11 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		C3.Plugins.Sprite.Acts.SetTowardPosition,
 		C3.Plugins.Touch.Exps.X,
 		C3.Plugins.Touch.Exps.Y,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.Text.Acts.SetFontColor,
+		C3.Plugins.System.Cnds.Compare,
+		C3.Plugins.Mouse.Exps.X,
+		C3.Plugins.Mouse.Exps.Y,
 		C3.Plugins.Sprite.Cnds.OnCreated,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.random,
@@ -2952,28 +2957,24 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		C3.Plugins.Keyboard.Cnds.IsKeyDown,
 		C3.Plugins.Touch.Cnds.OnHoldGesture,
 		C3.Plugins.Sprite.Acts.Spawn,
-		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.Keyboard.Cnds.OnKeyReleased,
 		C3.Plugins.Touch.Cnds.OnTapGesture,
 		C3.Plugins.Touch.Cnds.OnTouchEnd,
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.Sprite.Acts.Destroy,
-		C3.Plugins.Touch.Cnds.OnHoldGestureObject,
-		C3.Plugins.Sprite.Acts.RotateClockwise,
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Sprite.Acts.SubInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
-		C3.Plugins.Sprite.Acts.SetDefaultColor,
 		C3.Behaviors.Bullet.Acts.SetSpeed,
 		C3.Plugins.Text.Acts.SetVisible,
-		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Acts.ResetGlobals,
 		C3.Plugins.System.Cnds.OnLayoutStart,
+		C3.Plugins.Sprite.Cnds.IsOutsideLayout,
 		C3.Plugins.System.Cnds.Repeat,
 		C3.Plugins.System.Exps.layoutwidth,
 		C3.Plugins.System.Exps.layoutheight,
@@ -3006,7 +3007,7 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		{Keyboard: 0},
 		{Sprite: 0},
 		{homeback: 0},
-		{Text2: 0},
+		{Score: 0},
 		{am: 0},
 		{endscreen: 0},
 		{arrow: 0},
@@ -3032,6 +3033,8 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		{Text: 0},
 		{Text5: 0},
 		{Text6: 0},
+		{Sprite4: 0},
+		{aftershot: 0},
 		{amo: 0},
 		{amoT: 0},
 		{score: 0}
@@ -3148,6 +3151,9 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
+		() => 50,
+		() => -281475832390655,
+		() => 0,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => Math.floor(f0(1, 4));
@@ -3169,16 +3175,13 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => Math.floor(f0(30, 450));
 		},
-		() => 0,
 		() => 1,
-		() => 10,
-		() => -17179870207,
+		() => "game",
 		() => 400,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
-		() => 50,
 		() => "Background",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
