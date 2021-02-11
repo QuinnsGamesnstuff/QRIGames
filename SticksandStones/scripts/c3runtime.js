@@ -3152,6 +3152,10 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 		{arrow: 0},
 		{TutorialBoc: 0},
 		{Tutorialtext: 0},
+		{MenuBloc: 0},
+		{BacktoMenu: 0},
+		{Nextlev2: 0},
+		{Nextlvl2txt: 0},
 		{GC: 0}
 	];
 }
@@ -3275,7 +3279,7 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 			return () => n0.ExpInstVar();
 		},
 		() => 2,
-		() => "YOU WON! Thank you for playing the SticksandStones! Press space to go back to the main menu"
+		() => "YOU WON! Thank you for playing SticksandStones!"
 	];
 }
 
