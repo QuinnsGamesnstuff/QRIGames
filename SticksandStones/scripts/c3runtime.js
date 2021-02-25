@@ -3078,12 +3078,10 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 		C3.Plugins.Text.Acts.SetVisible,
 		C3.Plugins.Mouse.Cnds.OnObjectClicked,
 		C3.Plugins.System.Acts.GoToLayout,
-		C3.Plugins.System.Cnds.CompareVar,
-		C3.Plugins.Text.Acts.SetText,
-		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Behaviors.Platform.Acts.SetDoubleJumpEnabled,
 		C3.Plugins.Keyboard.Cnds.IsKeyDown,
 		C3.Behaviors.Platform.Acts.SimulateControl,
+		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Sprite.Acts.SetMirrored,
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Behaviors.Platform.Cnds.IsMoving,
@@ -3102,9 +3100,11 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 		C3.Plugins.Sprite.Acts.SubInstanceVar,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Cnds.EveryTick,
+		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Behaviors.solid.Acts.SetEnabled,
-		C3.Plugins.System.Acts.AddVar
+		C3.Plugins.System.Acts.AddVar,
+		C3.Plugins.System.Cnds.CompareVar
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -3156,6 +3156,8 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 		{BacktoMenu: 0},
 		{Nextlev2: 0},
 		{Nextlvl2txt: 0},
+		{Nextlvl3txt: 0},
+		{Nextlev3: 0},
 		{GC: 0}
 	];
 }
@@ -3258,8 +3260,6 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 	}
 
 	self.C3_ExpressionFuncs = [
-		() => 3,
-		() => "YOU WON! Thank you for playing the SticksandStones tutorial! Press space to go back to the main menu",
 		() => "Jump",
 		() => "walk",
 		() => 0,
@@ -3279,6 +3279,7 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 			return () => n0.ExpInstVar();
 		},
 		() => 2,
+		() => 3,
 		() => "YOU WON! Thank you for playing SticksandStones!"
 	];
 }
