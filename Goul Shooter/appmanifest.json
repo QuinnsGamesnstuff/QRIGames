@@ -1,7 +1,7 @@
 {
 	"name": "Goul Shooter",
 	"short_name": "Goul Shooter",
-	"description": "A simple top-down shooter example based on the Construct tutorial.",
+	"description": "",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "any",
