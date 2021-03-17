@@ -2989,6 +2989,26 @@ const map=new WeakMap;self.IBulletBehaviorInstance=class IBulletBehaviorInstance
 'use strict';{const C3=self.C3;C3.Behaviors.Bullet.Exps={Speed(){return this._GetSpeed()},Acceleration(){return this._GetAcceleration()},AngleOfMotion(){return C3.toDegrees(this._GetAngleOfMotion())},DistanceTravelled(){return this._GetDistanceTravelled()},Gravity(){return this._GetGravity()}}};
 
 
+'use strict';{const C3=self.C3;C3.Behaviors.wrap=class WrapBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.wrap.Type=class WrapType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}};
+
+
+'use strict';{const C3=self.C3;const MODE=0;const bound=new C3.Rect;C3.Behaviors.wrap.Instance=class WrapInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._mode=0;if(properties)this._mode=properties[MODE];this._StartTicking()}Release(){super.Release()}SaveToJson(){return{"m":this._mode}}LoadFromJson(o){this._mode=o["m"]}Tick(){const wi=this._inst.GetWorldInfo();const layer=wi.GetLayer();const layout=layer.GetLayout();const bbox=wi.GetBoundingBox();if(this._mode===
+0)bound.set(0,0,layout.GetWidth(),layout.GetHeight());else bound.copy(layer.GetViewport());if(bbox.getRight()<bound.getLeft()){wi.SetX(bound.getRight()-1+(wi.GetX()-bbox.getLeft()));wi.SetBboxChanged()}else if(bbox.getLeft()>bound.getRight()){wi.SetX(bound.getLeft()+1-(bbox.getRight()-wi.GetX()));wi.SetBboxChanged()}else if(bbox.getBottom()<bound.getTop()){wi.SetY(bound.getBottom()-1+(wi.GetY()-bbox.getTop()));wi.SetBboxChanged()}else if(bbox.getTop()>bound.getBottom()){wi.SetY(bound.getTop()+1-(bbox.getBottom()-
+wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){case MODE:return this._mode}}SetPropertyValueByIndex(index,value){switch(index){case MODE:this._mode=value;break}}}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.wrap.Cnds={}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.wrap.Acts={}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.wrap.Exps={}};
+
+
 'use strict';{const C3=self.C3;C3.Behaviors.Fade=class FadeBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
 
 
@@ -3085,6 +3105,7 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 		C3.Plugins.Mouse,
 		C3.Behaviors.destroy,
 		C3.Behaviors.Bullet,
+		C3.Behaviors.wrap,
 		C3.Behaviors.Fade,
 		C3.Plugins.Text,
 		C3.Plugins.Keyboard,
@@ -3096,8 +3117,11 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 		C3.Plugins.Sprite.Acts.SetAngle,
 		C3.Plugins.System.Exps.random,
 		C3.Plugins.Text.Acts.SetVisible,
+		C3.Plugins.Sprite.Acts.SetDefaultColor,
 		C3.Plugins.System.Cnds.EveryTick,
 		C3.Plugins.Text.Acts.SetText,
+		C3.Plugins.Sprite.Acts.SubInstanceVar,
+		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Mouse.Exps.X,
 		C3.Plugins.Mouse.Exps.Y,
@@ -3114,11 +3138,10 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 		C3.Plugins.Mouse.Cnds.OnClick,
 		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.System.Acts.SubVar,
-		C3.Plugins.Sprite.Cnds.OnCollision,
-		C3.Plugins.Sprite.Acts.SubInstanceVar,
-		C3.Plugins.Sprite.Acts.Destroy,
-		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
+		C3.Plugins.Sprite.Acts.Destroy,
+		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.System.Acts.AddVar,
 		C3.Behaviors.Bullet.Exps.Speed,
 		C3.Plugins.Sprite.Cnds.IsOutsideLayout,
 		C3.Plugins.Sprite.Exps.X,
@@ -3128,8 +3151,7 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 		C3.Plugins.System.Cnds.Every,
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Behaviors.Bullet.Acts.SetSpeed,
-		C3.Plugins.Sprite.Cnds.IsOnScreen,
-		C3.Plugins.Sprite.Acts.SetAnim,
+		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.System.Acts.SetVar,
@@ -3150,6 +3172,7 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 		{Bullet: 0},
 		{health: 0},
 		{Movement: 0},
+		{Wrap: 0},
 		{Monster: 0},
 		{Fade: 0},
 		{Explosion: 0},
@@ -3163,10 +3186,10 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 		{amo: 0},
 		{Sprite: 0},
 		{Shield2: 0},
-		{Sprite2: 0},
+		{LiveGrande: 0},
 		{Sprite3: 0},
 		{Sprite4: 0},
-		{Sprite5: 0},
+		{grenadesp: 0},
 		{Text: 0},
 		{GrenadeCount: 0},
 		{TiledBackground2: 0},
@@ -3188,7 +3211,11 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 		{Solid: 0},
 		{wall: 0},
 		{pillar: 0},
+		{grenadeUI1: 0},
+		{grenadeUI2: 0},
+		{grenadeUI3: 0},
 		{AmoNum: 0},
+		{grandeNum: 0},
 		{MonsterSpeed: 0},
 		{Score: 0}
 	];
@@ -3296,6 +3323,7 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(360);
 		},
+		() => -1023,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => ((and("Score: ", v0.GetValue()) + "\n") + "Use WASD, or arrow keys to move and click to shoot!");
@@ -3304,14 +3332,18 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("Amo: ", v0.GetValue());
 		},
+		() => 1,
+		() => "Animation 1",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
 		() => 0,
 		() => "Main",
-		() => 1,
 		() => "Amo: OUT OF AMO",
+		() => -717750023016447,
+		() => 2,
+		() => 3,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpBehavior();
@@ -3328,7 +3360,6 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 			return () => C3.distanceTo(n0.ExpObject(), n1.ExpObject(), n2.ExpObject(), n3.ExpObject());
 		},
 		() => 200,
-		() => 3,
 		() => 1500,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3344,9 +3375,9 @@ value){switch(index){case ENABLE:this.SetEnabled(value);break}}GetDebuggerProper
 			return () => f0(1500);
 		},
 		() => 10,
-		() => "Animation 1",
+		() => 15,
 		() => 80,
-		() => 20
+		() => 25
 	];
 }
 
