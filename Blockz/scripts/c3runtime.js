@@ -2978,21 +2978,19 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Plugins.Sprite.Acts.Destroy,
-		C3.Plugins.Keyboard.Cnds.IsKeyDown,
-		C3.Plugins.Touch.Cnds.OnHoldGesture,
-		C3.Plugins.Sprite.Acts.Spawn,
+		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.Keyboard.Cnds.OnKeyReleased,
 		C3.Plugins.Touch.Cnds.OnTapGesture,
 		C3.Plugins.Touch.Cnds.OnTouchEnd,
+		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
-		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Sprite.Acts.SubInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
-		C3.Behaviors.Bullet.Acts.SetSpeed,
 		C3.Plugins.Sprite.Acts.SetDefaultColor,
+		C3.Behaviors.Bullet.Acts.SetSpeed,
 		C3.Plugins.Text.Acts.SetVisible,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.Plugins.System.Acts.GoToLayout,
@@ -3059,6 +3057,8 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		{Text6: 0},
 		{Sprite4: 0},
 		{aftershot: 0},
+		{Ncord: 0},
+		{use: 0},
 		{negscoreblock10: 0},
 		{Sprite5: 0},
 		{Gcord: 0},
@@ -3206,13 +3206,22 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(10, 25);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => Math.floor(f0(30, 450));
 		},
 		() => 1,
+		() => 3,
+		() => -168780186308607,
+		() => -225133596771327,
+		() => -281492157629439,
 		() => "game",
 		() => 400,
 		() => -281474976711679,
 		() => 10,
+		() => -84390940403711,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
