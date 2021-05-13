@@ -2964,6 +2964,7 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		C3.Plugins.Text,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Text.Acts.SetText,
+		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.Text.Acts.SetVisible,
 		C3.Behaviors.EightDir.Cnds.IsMoving,
@@ -2972,13 +2973,15 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		C3.Plugins.shadowlight.Acts.SetPos,
 		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Exps.Y,
-		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Sprite.Acts.SetPos,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Behaviors.LOS.Cnds.HasLOSToObject,
 		C3.Plugins.Sprite.Acts.SetDefaultColor,
-		C3.Behaviors.TileMovement.Acts.SetEnabled
+		C3.Plugins.Sprite.Cnds.IsOverlapping,
+		C3.Plugins.System.Acts.AddVar
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -2988,7 +2991,7 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		{ScrollTo: 0},
 		{LineOfSight: 0},
 		{Adventurer: 0},
-		{Sprite: 0},
+		{background: 0},
 		{ShadowCaster: 0},
 		{wall: 0},
 		{ShadowLight: 0},
@@ -2998,7 +3001,14 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		{Keyboard: 0},
 		{invisbox: 0},
 		{escape: 0},
-		{Text: 0}
+		{Text: 0},
+		{key: 0},
+		{boxbox: 0},
+		{movableBox2: 0},
+		{Button1: 0},
+		{Sprite: 0},
+		{Sprite2: 0},
+		{unlocker: 0}
 	];
 }
 
@@ -3106,11 +3116,13 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
+		() => 3,
 		() => 1644,
 		() => 153,
 		() => 0,
 		() => -281492157629439,
 		() => -1023,
+		() => 1,
 		() => "Congratulations! You've escaped! Thank you for playing the Demo."
 	];
 }
